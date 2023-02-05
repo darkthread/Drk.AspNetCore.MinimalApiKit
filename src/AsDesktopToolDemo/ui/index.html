@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>AES Encryptor</title>
+    <style>
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .main {
+            display: flex;
+            flex-direction: column;
+            height: 98%;
+        }
+
+            .main > * {
+                margin: 0 6px;
+                padding: 6px;
+            }
+
+        .plain {
+            flex: 1 1 100px;
+        }
+
+        .btns {
+            padding: 0 6px;
+            flex: 0 0 25px;
+        }
+
+        .encrypted {
+            flex: 2 2 200px;
+        }
+
+        textarea {
+            box-sizing: border-box;
+            height: 100%;
+            width: 100%;
+            font-size: 1.2em;
+        }
+
+        .btns > * {
+            margin-right: 3px;
+        }
+
+        textarea.hl {
+            color: rgb(226, 0, 0);
+            background-color: rgb(212, 252, 253);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main" id="app">
+        <form action="/aes" method="post" id="encForm" class="plain" target="postResult">
+            <textarea name="data" v-model="Plain" :class="{hl:HighlightTarget=='Plain'}">Hello</textarea>
+            <input type="hidden" name="mode" value="encrypt" />
+            <input type="hidden" name="key" v-model="EncKey" />
+        </form>
+        <div class="btns">
+            <input placeholder="Encryption Key..." v-model="EncKey" />
+            <button @click="Encrypt()" :disabled="!EncKey || !Plain">Ecnrypt</button>
+            <button @click="Decrypt()" :disabled="!EncKey || !Encrypted">Decrypt</button>
+            <div>{{Message}}</div>
+        </div>
+        <form action="/aes" method="post" id="decForm" class="encrypted" target="postResult">
+            <textarea class="encrypted" name="data" v-model="Encrypted"
+                      :class="{hl:HighlightTarget=='Encrypted'}"></textarea>
+            <input type="hidden" name="mode" value="decrypt" />
+            <input type="hidden" name="key" v-model="EncKey" />
+        </form>
+    </div>
+    <iframe name="postResult" style="display:none"></iframe>
+    <script src="vue.global.prod.min.js"></script>
+    <script>
+        var vm = Vue.createApp({
+            data() {
+                return {
+                    EncKey: 'ThisIsEncryptKey',
+                    Plain: 'Hello World',
+                    Encrypted: '',
+                    Message: '',
+                    HighlightTarget: ''
+                }
+            },
+            methods: {
+                Encrypt() { document.getElementById('encForm').submit(); },
+                Decrypt() { document.getElementById('decForm').submit(); },
+                Highlight(target) {
+                    this.HighlightTarget = target;
+                    let self = this;
+                    setTimeout(() => self.HighlightTarget = '', 800);
+                }
+            }
+        }).mount('#app');
+    </script>
+    <script src="/sse.js"></script>
+</body>
+
+</html>
