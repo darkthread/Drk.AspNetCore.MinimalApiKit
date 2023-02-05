@@ -8,9 +8,7 @@ using Microsoft.AspNetCore.Hosting.Server.Features;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-#if WINDOWS
 using H.NotifyIcon.Core;
-#endif
 
 namespace Drk.AspNetCore.MinimalApiKit;
 public static class MinimalApiAsDesktopTool
@@ -104,7 +102,6 @@ var hdn = setInterval(function() {
         task.Wait();
     }
 
-#if WINDOWS
     static bool exitFlag = false;
     public static string AppBaseUrl = null;
 
@@ -161,6 +158,5 @@ var hdn = setInterval(function() {
         
         task.Wait();
     }
-#endif
 
 }

@@ -5,9 +5,9 @@ VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Drk.AspNetCore.MinimalApiKit", "Drk.AspNetCore.MinimalApiKit\Drk.AspNetCore.MinimalApiKit.csproj", "{2F117F4D-5FAE-4631-BC6F-C904E0F9EB70}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsDesktopToolDemo", "AsDesktopToolDemo\AsDesktopToolDemo.csproj", "{7B5384F2-9EF1-4A8D-84BD-3B7239A09D3A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RunAsDesktopToolDemo", "RunAsDesktopToolDemo\RunAsDesktopToolDemo.csproj", "{7B5384F2-9EF1-4A8D-84BD-3B7239A09D3A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsNotifyIconDemo", "AsNotifyIconDemo\AsNotifyIconDemo.csproj", "{E73B19F0-F0EF-4AAB-A5DE-D79F8B7095C9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RunWithNotifyIconDemo", "RunWithNotifyIconDemo\RunWithNotifyIconDemo.csproj", "{E73B19F0-F0EF-4AAB-A5DE-D79F8B7095C9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

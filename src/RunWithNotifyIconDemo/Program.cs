@@ -11,7 +11,7 @@ using MinApiTrayIcon;
 using Drk.AspNetCore.MinimalApiKit;
 using System.Runtime.CompilerServices;
 
-const string appToolTip = "常駐小程式示範";
+const string appToolTip = "AES256 Demo";
 const string appUuid = "{9BE6C0F7-13F3-47BA-8B91-FB6A50BE09C5}";
 
 // Prevent re-entrance
@@ -70,7 +70,8 @@ using (Mutex m = new Mutex(false, $"Global\\{appUuid}"))
 
     app.RunWithNotifyIcon(new NotifyIconOptions
     {
-        IconStream = typeof(Program).Assembly.GetManifestResourceStream($"AsNotifyIconDemo.App.ico"),
+        IconStream = typeof(Program).Assembly.GetManifestResourceStream($"RunWithNotifyIconDemo.App.ico"),
+        ToolTip = appToolTip, 
         MenuItems =
         {
             NotifyIconOptions.CreateLaunchBrowserMenuItem("Launch Browser", (webBaseUrl) => webBaseUrl),

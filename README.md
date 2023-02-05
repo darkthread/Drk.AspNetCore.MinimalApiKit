@@ -13,7 +13,7 @@ The default browser will launch as soon as the application start and navigate to
 
 ![](AsDesktopToolDemo.gif)
 
-You can find the example project in src/AsDesktopToolDemo folder.
+You can find the example project in `src/RunAsDesktopToolDemo` folder.
 
 程式說明：[Electron.NET 太笨重？用 ASP.NET Core Minimal API 寫桌面小工具的快速做法](https://blog.darkthread.net/blog/electron-net-alternative/)
 
@@ -35,6 +35,7 @@ You can find the example project in src/AsDesktopToolDemo folder.
     app.RunWithNotifyIcon(new NotifyIconOptions
     {
         IconStream = typeof(Program).Assembly.GetManifestResourceStream($"AsNotifyIconDemo.App.ico"),
+        ToolTip = "NotifyIcon ToolTip",
         MenuItems =
         {
             NotifyIconOptions.CreateLaunchBrowserMenuItem("Launch Browser", (webBaseUrl) => webBaseUrl),
@@ -49,6 +50,6 @@ You can find the example project in src/AsDesktopToolDemo folder.
 
 [Demo video on YouTube](https://www.youtube.com/watch?v=qfKrwCcLGAs)
 
-You can find the example project in src/AsNotifyIconDemo folder.
+You can find the example project in `src/RunWithNotifyIconDemo` folder.
 
 程式說明：[把 ASP.NET Core 變成 Windows 桌面常駐程式](https://blog.darkthread.net/blog/min-api-run-with-tray-icon/)
